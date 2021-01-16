@@ -7,69 +7,12 @@
 </head>
 <body>
   <h1>Index</h1>
+  <div id="stage"></div>
+  <script type="module">
+    import {MyObj} from './module.js';
 
-  <script>
-    class MyObj {
-      constructor(r, g, b){
-        this.red = r;
-        this.green = g;
-        this.blue = b;
-      }
-
-      get hex(){
-        return '#' + ('00' + this.red.toString(16)).substr(-2)
-          + ('00' + this.green.toString(16)).substr(-2)
-          + ('00' + this.blue.toString(16)).substr(-2);
-      }
-
-      get startP(){
-        return '<p style="background-color:' + this.hex + '">';
-      }
-
-      get endP(){
-        return '</p>';
-      }
-
-      print(){
-        document.write(this.startP);
-        document.write('RED   : ' + this.red + '<br/>');
-        document.write('GREEN : ' + this.green + '<br/>');
-        document.write('BLUE  : ' + this.blue + '<br/>');
-        document.write(this.endP);
-      }
-    }
-
-    class UltraMyObj extends MyObj {
-      get startP(){
-        return '<style>'
-          + 'th {border:1px solid gray;padding: 5px 20px;}'
-          + 'td {border:1px solid gray;padding: 5px 20px;}'
-          + '</style><table>'
-      }
-      get header(){
-        return '<tr><th style="background-color:' + this.hex + ';">' + this.hex + '</th></tr>'
-      }
-      body(){
-        document.write('<tr><td>RED: '+ this.red +'</td></tr>');
-        document.write('<tr><td>GREEN: '+ this.green +'</td></tr>');
-        document.write('<tr><td>BLUE: '+ this.blue +'</td></tr>');
-      }
-      get endP(){
-        return '</table>';
-      }
-      print(){
-        document.write(this.startP);
-        document.write(this.header);
-        this.body();
-        document.write(this.endP);
-      }
-    }
-
-    let ob = new MyObj(255,200,200);
-    ob.print();
-
-    let ob2 = new UltraMyObj(0,150,200);
-    ob2.print();
+    let ob = new MyObj(255, 200, 50);
+    document.getElementById('stage').innerHTML = ob.printData();
   </script>
 </body>
 </html>
