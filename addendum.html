@@ -9,9 +9,9 @@
   <h1>Index</h1>
   <div id="stage"></div>
   <script type="module">
-    import {MyObj} from './module.js';
+    import myobj from './module.js';
 
-    let ob = new MyObj(255, 200, 50);
+    let ob = new myobj(255, 100, 50);
     document.getElementById('stage').innerHTML = ob.printData();
   </script>
 </body>

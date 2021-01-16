@@ -1,4 +1,4 @@
-export class MyObj {
+export default class {
   constructor(r, g, b){
     this.red = r;
     this.green = g;
