@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function hello(getName, name){
+      document.write('<p>こんにちは'+getName(name)+'さん！</p>')
+    }
+
+    hello((name) => {return '<b>'+name+'</b>'}, '太郎');
+    hello((name) => '<<<'+name+'>>>', '花子');
+  </script>
+</body>
+</html>
