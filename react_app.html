@@ -17,21 +17,25 @@
     const p = {
       fontSize: '20pt',
       padding: '10px',
+      backgroundColor: 'blue',
+      color: 'white',
+      cursor: 'pointer'
     };
 
     let counter = 0;
 
-    const counterFunc = () => {
+    let doAction = (event) => {
       counter++;
       let el = (
         <div>
-          <p style={p}>count: {counter}</p>
+          <p onClick={doAction} style={p}>count: {counter}</p>
         </div>
       )
       ReactDOM.render(el, dom);
     }
 
-    setInterval(counterFunc, 1000);
+    doAction();
+
   </script>
   <!-- <script src="./script.js"></script> -->
 </body>
