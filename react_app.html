@@ -21,9 +21,21 @@
       color: 'red',
       border: '1px solid red'
     }
+
+    let printMsg = function(msg, size, color){
+      const style = {
+        fontSize: size + 'pt',
+        fontWeight: '700',
+        color: color,
+        border: '1px solid ' + color
+      };
+      return <p style={style}>{msg}</p>;
+    }
     let el = (
       <div>
-        <p style={msg_s}>{message}</p>
+        {printMsg('最初のメッセージ', 30, '#ddd')}
+        {printMsg('次のメッセージ', 20, '#aaa')}
+        {printMsg('最後のメッセージ', 14, '#333')}
       </div>
     );
     ReactDOM.render(el, dom);
