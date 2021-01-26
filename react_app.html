@@ -11,24 +11,22 @@
 <body>
   <h1>React</h1>
   <div id="root">wait...</div>
-  <div id="mustache">wait...</div>
   <script type="text/babel">
     let dom = document.querySelector('#root');
-    let el = <div><h2>JSX Sample</h2><p>This is sample message.</p></div>;
-    ReactDOM.render(el, dom);
 
-    let mustacheDom = document.querySelector('#mustache');
-    let title = '新タイトル';
-    let message = '新メッセージ';
-    let link = 'https://www.google.com/';
-    let elMustache = (
+    let message = '新しいメッセージです';
+
+    const msg_s = {
+      fontSize: '20pt',
+      color: 'red',
+      border: '1px solid red'
+    }
+    let el = (
       <div>
-        <h2>{title}</h2>
-        <p>{message}</p>
-        <a href={link}>this is link.</a>
+        <p style={msg_s}>{message}</p>
       </div>
     );
-    ReactDOM.render(elMustache, mustacheDom);
+    ReactDOM.render(el, dom);
   </script>
   <!-- <script src="./script.js"></script> -->
 </body>
