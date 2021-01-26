@@ -6,30 +6,30 @@
   <title>React</title>
   <script src="https://unpkg.com/react@16.14.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.14.0/umd/react-dom.development.js"></script>
-  <style>
-    #root {
-      cursor: pointer;
-      font-size: 20pt;
-      background-color: lightblue;
-      padding: 1px 20px;
-    }
-  </style>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 </head>
 <body>
   <h1>React</h1>
-  <div id="root" onclick="doCount();">wait...</div>
-  <script>
-    let counter = 0;
+  <div id="root">wait...</div>
+  <div id="mustache">wait...</div>
+  <script type="text/babel">
     let dom = document.querySelector('#root');
-    doCount();
+    let el = <div><h2>JSX Sample</h2><p>This is sample message.</p></div>;
+    ReactDOM.render(el, dom);
 
-    function doCount(){
-      counter++;
-      let element = React.createElement(
-        'p', {}, "count: " + counter
-      );
-      ReactDOM.render(element, dom);
-    }
+    let mustacheDom = document.querySelector('#mustache');
+    let title = '新タイトル';
+    let message = '新メッセージ';
+    let link = 'https://www.google.com/';
+    let elMustache = (
+      <div>
+        <h2>{title}</h2>
+        <p>{message}</p>
+        <a href={link}>this is link.</a>
+      </div>
+    );
+    ReactDOM.render(elMustache, mustacheDom);
   </script>
+  <!-- <script src="./script.js"></script> -->
 </body>
 </html>
