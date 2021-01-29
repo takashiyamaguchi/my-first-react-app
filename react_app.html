@@ -14,38 +14,32 @@
   <script type="text/babel">
     let dom = document.querySelector('#root');
 
-    const p = {
+    const msg1 = {
       fontSize: '20pt',
       padding: '10px',
-    };
-    const input = {
+      border: 'double 5px magenta'
+    }
+
+    const msg2 = {
       fontSize: '16pt',
-      padding: '5px 10px',
+      fontWeight: 'bold',
+      padding: '10px',
+      backgroundColor: 'cyan'
     }
 
-    let message = 'お名前をどうぞ：';
-    let in_val = '';
-
-    let doChange = (event) => {
-      in_val = event.target.value;
-      console.log(in_val);
-      message = 'こんにちは、'+ in_val + 'さん！';
+    // コンポーネント関数
+    function Welcome(props) {
+      return <p style={props.style}>Hello, {props.name}!!</p>;
     }
 
-    let doAction = (event) => {
-      let el = (
-        <div>
-          <p style={p}>{message}</p>
-          <div>
-            <input type="text" name="input" style={input} onChange={doChange} />
-            <button onClick={doAction} style={input}>Click</button>
-          </div>
-        </div>
-      );
-      ReactDOM.render(el, dom);
-    }
-
-    doAction();
+    // 表示するJSX
+    let el = (
+      <div>
+        <Welcome name='Taro' style={msg1} />
+        <Welcome name='Hanako' style={msg2} />
+      </div>
+    );
+    ReactDOM.render(el, dom);
   </script>
   <!-- <script src="./script.js"></script> -->
 </body>
