@@ -6,13 +6,19 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
-    function hello(getName, name){
-      document.write('<p>こんにちは'+getName(name)+'さん！</p>')
-    }
+  <h1>Index</h1>
 
-    hello((name) => {return '<b>'+name+'</b>'}, '太郎');
-    hello((name) => '<<<'+name+'>>>', '花子');
+  <script>
+    let ob = {
+      red: 255, green: 125, blue: 0,
+      print(){
+        document.write('<p>RED: ' + this.red + '</p>');
+        document.write('<p>GREEN: ' + this.green + '</p>');
+        document.write('<p>BLUE: ' + this.blue + '</p>');
+      }
+    };
+
+    ob.print();
   </script>
 </body>
 </html>
